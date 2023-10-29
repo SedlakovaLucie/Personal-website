@@ -6,32 +6,37 @@
     <title>Responzivní navigační menu</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-
+  <!------------------------------------------------- NAVBAR ------------------------------------------------->
   <body>
-    <button class="hamburger" id="hamburger">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-    <div class="menu" id="menu">
-      <div class="logo">
-        <img src="logo.png" alt="Logo" />
-      </div>
-      <ul class="menu-links">
-        <li><a href="#section1">Sekce 1</a></li>
-        <li><a href="#section2">Sekce 2</a></li>
-        <li><a href="#section3">Sekce 3</a></li>
-        <li><a href="#section4">Sekce 4</a></li>
-      </ul>
-      <div class="bottom">
-        <div class="theme-buttons">
-          <button id="lightMode">Světlý režim</button>
-          <button id="darkMode">Tmavý režim</button>
+    <header>
+      <nav class="nabvar">
+        <button class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <div class="menu" id="menu">
+          <div class="logo">
+            <a href="#section1"><img src="img/logo.png" alt="Logo" /></a>
+          </div>
+          <ul class="menu-links">
+            <li><a href="#section4">Portfolio</a></li>
+            <li><a href="#section5">Kariéra</a></li>
+            <li><a href="#section6">Kontakt</a></li>
+            <li><a href="#">CV</a></li>
+            <div class="mode">
+              <button id="lightMode">Light Mode <img src="img/sun.png" alt=""></button>
+              <button id="darkMode">Dark Mode <img src="img/moon.png" alt=""></button>
+            </div>
+          </ul>
+          <footer>
+            <p>@2023|Lucie Sedláková</p>
+          </footer>
+          </div>
         </div>
-        <p>Doplňující informace</p>
-      </div>
-    </div>
-
+      </nav>
+    </header>
+    <!------------------------------------------------ MAIN CONTENT ------------------------------------------------>
     <div class="content">
       <section id="section1">
         <h2>Sekce 1</h2>

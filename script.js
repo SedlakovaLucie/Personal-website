@@ -1,4 +1,4 @@
-// JavaScript v script.js
+//NAVIGAČNÍ MENU
 
 const hamburger = document.getElementById("hamburger");
 const menu = document.getElementById("menu");
@@ -38,3 +38,5 @@ document.querySelectorAll(".menu-links a").forEach((link) => {
     scrollToSection(sectionId);
   });
 });
+
+//Light/Dark mode

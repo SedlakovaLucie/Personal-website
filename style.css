@@ -20,7 +20,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.navbar {
+.menu {
   position: fixed;
   top: 0;
   left: -200px;
@@ -63,7 +63,7 @@ body {
   background: #555;
 }
 
-.menu .bottom {
+footer {
   position: absolute;
   bottom: 0;
   width: 100%;
