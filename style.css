@@ -1,9 +1,23 @@
+/* FONTS */
+@font-face {
+  font-family: Inconsolata;
+  src: url(font/Inconsolata_Condensed-Regular.ttf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Inconsolata;
+  src: url(font/Inconsolata_Condensed-Bold.ttf);
+  font-weight: bold;
+}
+
 /* CSS reset */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 li {
@@ -14,11 +28,28 @@ a {
   text-decoration: none;
 }
 
-/* CSS ve style.css */
+/*********************************** GLOBAL ***********************************/
+
+:root {
+  --gold: #bd9d3d;
+  --purple: #302e4d;
+  --white: #e2e2e9;
+  --dark: #222222;
+}
+
+html {
+  font-family: Inconsolata;
+  font-size: 22px;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  background-color: var(--purple);
+  color: var(--white);
+  max-width: 1700px;
 }
+
+/*********************************** NAVBAR ***********************************/
 
 .menu {
   position: fixed;
@@ -26,10 +57,13 @@ body {
   left: -200px;
   height: 100vh;
   width: 200px;
-  background: #333;
-  color: #fff;
+  background: var(--dark);
+  color: var(--white);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
   transition: left 0.3s ease;
   z-index: 1000;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .menu.show {
@@ -37,38 +71,54 @@ body {
 }
 
 .menu .logo {
-  padding: 20px;
-}
-
-.menu .menu-links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menu .menu-links li {
-  margin: 0;
-  padding: 0;
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 60px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--gold);
 }
 
 .menu .menu-links li a {
   display: block;
-  padding: 15px 20px;
-  color: #fff;
-  text-decoration: none;
+  padding: 20px 25px;
+  color: var(--gold);
   transition: background 0.3s;
 }
 
 .menu .menu-links li a:hover {
-  background: #555;
+  background-color: rgba(189, 157, 61, 0.2);
+  border-right: 5px solid var(--gold);
+  border-radius: 5px;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 20px;
+/************** Light Mode button **************/
+
+.menu .mode {
+  display: block;
+  padding: 20px 0px;
 }
+
+.menu .mode button {
+  color: var(--gold);
+  background-color: var(--white);
+  border: 2px solid var(--white);
+  border-radius: 5px;
+  font-family: Inconsolata;
+  font-size: 22px;
+  width: 100%;
+}
+
+.menu .mode button:hover {
+  cursor: pointer;
+}
+
+.menu .mode button img {
+  width: 30px;
+  margin: 0px 18px;
+}
+
+/************** Hamburger **************/
 
 .hamburger {
   display: block;
@@ -85,33 +135,74 @@ footer {
   left: 220px;
 }
 
+.hamburger.open .bar {
+  background: var(--dark);
+}
+
 .bar {
   display: block;
   width: 25px;
   height: 3px;
   margin: 5px auto;
-  background-color: #333;
+  background-color: var(--gold);
   transition: background 0.3s;
 }
 
-.hamburger.open .bar {
-  background: black;
+/*********************************** FOOTER ***********************************/
+
+footer {
+  font-size: 16px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
 }
+
+/*********************************** MAIN ***********************************/
 
 .content {
   margin-left: 250px;
   width: 70%;
   max-width: 1360px;
-  margin-top: 100px;
   padding: 20px;
 }
 
-@media screen and (max-width: 800px) {
-  .content {
-    margin-left: 50px;
+/************** Dark/Light Mode **************/
+
+.darkMain {
+  color: aqua;
+  background-color: black;
+}
+
+.darkMode {
+  display: none;
+}
+
+.lightMode {
+  display: block;
+}
+
+/*********************************** BREAKPOINTS ***********************************/
+
+@media (min-width: 1000px) {
+  .menu {
+    left: -270px;
+    height: 100vh;
+    width: 270px;
   }
 
-  .hamburger {
-    left: 20px;
+  .hamburger.open {
+    left: 290px;
+  }
+
+  .content {
+    margin-left: 320px;
+  }
+}
+
+@media (max-width: 800px) {
+  .content {
+    margin-left: 50px;
   }
 }

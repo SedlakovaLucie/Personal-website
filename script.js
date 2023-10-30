@@ -1,4 +1,4 @@
-//NAVIGAČNÍ MENU
+//////////////////////////////////////NAVBAR
 
 const hamburger = document.getElementById("hamburger");
 const menu = document.getElementById("menu");
@@ -39,4 +39,20 @@ document.querySelectorAll(".menu-links a").forEach((link) => {
   });
 });
 
-//Light/Dark mode
+//////////////////////////////////////DARK/LIGHT MODE
+
+const body = document.querySelector("body");
+const lightMode = document.querySelector(".lightMode");
+const darkMode = document.querySelector(".darkMode");
+
+lightMode.addEventListener("click", () => {
+  darkMode.style.display = "block";
+  lightMode.style.display = "none";
+  body.classList.add("darkMain");
+});
+
+darkMode.addEventListener("click", () => {
+  lightMode.style.display = "block";
+  darkMode.style.display = "none";
+  body.classList.remove("darkMain");
+});
