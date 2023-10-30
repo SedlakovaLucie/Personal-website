@@ -161,7 +161,7 @@ footer {
 
 /*********************************** MAIN ***********************************/
 
-.content {
+main {
   margin-left: 250px;
   width: 70%;
   max-width: 1360px;
@@ -196,13 +196,13 @@ footer {
     left: 290px;
   }
 
-  .content {
+  main {
     margin-left: 320px;
   }
 }
 
 @media (max-width: 800px) {
-  .content {
+  main {
     margin-left: 50px;
   }
 }
