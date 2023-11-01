@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/engeto.ico" />
+    <link rel="stylesheet" href="engeto.css" />
+    <title>Engeto - úkol</title>
+  </head>
+
+  <body>
+    <header class="application-header">
+      <nav class="application-navbar">
+        <a href="index.html" class="nav-logo">
+          <h1>Lucie<span> Sedláková</span></h1>
+        </a>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#section1" class="nav-link">Formulář</a>
+          </li>
+          <li class="nav-item">
+            <a href="#section2" class="nav-link">Fotogalerie</a>
+          </li>
+        </ul>
+        <div class="bar-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="section1">
+        <h2>Formulář</h2>
+        <form class="email"><input type="email" placeholder="Email" /></form>
+        <p class="valid">Váš email je ve správném formátu</p>
+        <p class="invalid">Váš email NENÍ ve správném formátu</p>
+
+        <form>
+          <input type="text" class="password1" placeholder="Heslo" />
+        </form>
+        <form>
+          <input type="text" class="password2" placeholder="Heslo" />
+        </form>
+
+        <p class="text"></p>
+        <form><input type="submit" class="submit" /></form>
+      </section>
+      <section id="section2">
+        <h2>Fotogalerie</h2>
+        <div class="image-wrapper">
+          <img src="img/cafe-website.png" alt="" />
+          <img src="img/roll-n-win.png" alt="" />
+          <img src="img/travelAssistant-website.png" alt="" />
+        </div>
+      </section>
+    </main>
+    <footer class="application-footer">
+      <p>@2023 | Lucie Sedláková</p>
+    </footer>
+    <script src="engeto.js"></script>
+  </body>
+</html>
