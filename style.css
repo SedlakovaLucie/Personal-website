@@ -118,6 +118,21 @@ body {
   margin: 0px 18px;
 }
 
+/************** Dark/Light Mode **************/
+
+.darkMain {
+  color: aqua;
+  background-color: black;
+}
+
+.darkMode {
+  display: none;
+}
+
+.lightMode {
+  display: block;
+}
+
 /************** Hamburger **************/
 
 .hamburger {
@@ -163,29 +178,214 @@ footer {
 
 main {
   margin-left: 250px;
-  width: 70%;
   max-width: 1360px;
   padding: 20px;
 }
 
-/************** Dark/Light Mode **************/
-
-.darkMain {
-  color: aqua;
-  background-color: black;
+section {
+  line-height: 1.5;
+  text-align: justify;
+  padding: 20px 0;
 }
 
-.darkMode {
-  display: none;
+/* TAGS */
+
+.html-tag {
+  margin-left: 0px;
+  color: var(--gold);
 }
 
-.lightMode {
-  display: block;
+.body-tag {
+  margin-left: 30px;
+  color: var(--gold);
+}
+
+.header-tag {
+  margin-left: 60px;
+}
+
+.other-tags {
+  color: var(--gold);
+}
+
+/************** SECTIONS **************/
+/************** Domů **************/
+
+.contact button {
+  background-color: var(--purple);
+  border: none;
+  margin-top: 40px;
+}
+
+.contact button a {
+  border: 2px solid var(--gold);
+  color: var(--white);
+  padding: 10px 40px;
+
+  font-family: Inconsolata;
+  font-size: 20px;
+}
+
+/************** Profil **************/
+
+section .profil a {
+  color: var(--gold);
+}
+
+/************** Dovednosti **************/
+
+section .icons-html img {
+  width: 65px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/************** Portfolio **************/
+
+.portfolio-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.cards {
+  display: flex;
+  gap: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.cards h3 {
+  text-align: center;
+  padding-bottom: 7px;
+}
+
+.text-wrapper {
+  width: 60%;
+}
+
+.image-wrapper {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.image-wrapper img {
+  width: 100%;
+  border-radius: 10px;
+  max-width: 300px;
+  object-fit: contain;
+}
+
+.cards img:hover {
+  transform: scale(1.05);
+  transition: ease-in 0.2s;
+}
+
+.cards button {
+  background-color: var(--purple);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+.cards button a {
+  color: var(--white);
+  font-family: Inconsolata;
+  font-size: 17px;
+}
+
+.cards button:hover {
+  transform: scale(1.05);
+  transition: ease-in 0.2s;
 }
 
 /*********************************** BREAKPOINTS ***********************************/
 
+@media (max-width: 1200px) {
+  /* portfolio */
+  .image-wrapper {
+    width: 40%;
+    display: block;
+  }
+
+  .text-wrapper {
+    width: 50%;
+  }
+
+  .image-wrapper {
+    width: 50%;
+  }
+}
+
+/************** 1150 **************/
+
+@media (max-width: 1150px) {
+  /* velikost písma */
+  html {
+    font-size: 20px;
+  }
+
+  .navbar .menu li a {
+    font-size: 20px;
+  }
+
+  .menu .mode button {
+    font-size: 20px;
+  }
+
+  .contact button a {
+    font-size: 20px;
+  }
+  .navbar .menu li span {
+    font-size: 20px;
+  }
+  .accordion-content header {
+    font-size: 23px;
+  }
+
+  section .icons-html img {
+    width: 50px;
+  }
+
+  .cards button {
+    padding: 8px 16px;
+  }
+
+  .cards button a {
+    font-size: 15px;
+  }
+
+  section .icons img {
+    width: 38px;
+  }
+
+  footer {
+    font-size: 15px;
+  }
+
+  /* portfolio */
+  .cards {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .image-wrapper {
+    width: 100%;
+  }
+
+  .text-wrapper {
+    width: 100%;
+    text-align: justify;
+  }
+}
+
+/************** 1000 **************/
+
 @media (min-width: 1000px) {
+  /* zmenšení menu */
   .menu {
     left: -270px;
     height: 100vh;
@@ -196,13 +396,76 @@ main {
     left: 290px;
   }
 
+  /* main 70% */
   main {
     margin-left: 320px;
+    width: 70%;
   }
 }
 
+@media (max-width: 1000px) {
+  /* portfolio - pod sebou */
+  .cards {
+    flex-direction: column;
+  }
+}
+
+/************** 800 **************/
+
+/* zavření menu */
 @media (max-width: 800px) {
   main {
     margin-left: 50px;
+  }
+
+  /* portfolio -borders */
+  .cards {
+    border-top: 2px solid var(--gold);
+    padding: 10px;
+  }
+}
+
+/************** 600 **************/
+
+@media (max-width: 600px) {
+  /* velikost písma */
+  html {
+    font-size: 17px;
+  }
+
+  .navbar .menu li a {
+    font-size: 17px;
+  }
+
+  .contact button a {
+    font-size: 17px;
+  }
+
+  .menu .mode button {
+    font-size: 17px;
+  }
+
+  .navbar .menu li span {
+    font-size: 17px;
+  }
+
+  .accordion-content header {
+    font-size: 20px;
+  }
+
+  section .icons-html img {
+    width: 40px;
+  }
+
+  .cards button a {
+    font-size: 16px;
+  }
+
+  section .icons img {
+    width: 33px;
+  }
+
+  footer {
+    font-size: 13px;
   }
 }
