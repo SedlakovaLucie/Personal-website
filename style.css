@@ -301,7 +301,79 @@ section .icons-html img {
   transition: ease-in 0.2s;
 }
 
+/************** Kariéra **************/
+
+#section5 .accordion-content {
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.accordion-content.open {
+  padding-bottom: 10px;
+}
+
+.accordion-content header {
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  justify-content: space-between;
+  font-size: 25px;
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.accordion-content.open header {
+  min-height: 50px;
+  color: var(--gold);
+}
+
+.accordion-content.open .dot {
+  color: var(--gold);
+}
+
+.accordion-content .dot {
+  transition: all 0.2s linear;
+}
+
+.accordion-content a {
+  color: var(--gold);
+}
+
+.accordion-content .description {
+  padding: 0 15px;
+  height: 0;
+  transition: all 0.2s linear;
+  overflow: hidden;
+  text-align: justify;
+}
+
+.accordion-content header .plus {
+  font-size: 30px;
+}
+
+/************** Kontakt **************/
+
+section .icons a:hover {
+  color: var(--gold);
+}
+
+section .icons a {
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+section .icons img {
+  width: 43px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
 /*********************************** BREAKPOINTS ***********************************/
+
+/************** 1200 **************/
 
 @media (max-width: 1200px) {
   /* portfolio */
