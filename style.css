@@ -28,14 +28,90 @@ a {
   text-decoration: none;
 }
 
-/*********************************** GLOBAL ***********************************/
+/*********************************** COLORS ***********************************/
 
 :root {
+  /* dark mode colors*/
   --gold: #bd9d3d;
-  --purple: #302e4d;
   --white: #e2e2e9;
-  --dark: #514d82;
+  --purple: #b1afd0;
+  --dark1: #514d82;
+  --dark2: #44426e;
+  --dark3: #38365a;
+  --dark4: #2c2a46;
+  --dark5: #1f1e32;
+  --dark6: #13121e;
+  /* light mode colors*/
+  --red: #da372e;
+  --black: #00004d;
+  --pink: #ffc6c0;
+  --light1: #ffffff;
+  --light2: #fffbfb;
+  --light3: #fff7f6;
+  --light4: #e79a91;
 }
+
+/************** Dark/Light Mode **************/
+
+.light {
+  --backGround: linear-gradient(
+    to right,
+    var(--light1),
+    var(--light2),
+    var(--light3),
+    var(--light4)
+  );
+
+  --buttons: linear-gradient(
+    to right,
+    var(--light1),
+    var(--light2),
+    var(--light3),
+    var(--light4)
+  );
+
+  --navbar: var(--light3);
+  --font: var(--black);
+  --htmlTags: var(--red);
+  --slide: var(--pink);
+}
+
+.dark {
+  --backGround: linear-gradient(
+    to right,
+    var(--dark1),
+    var(--dark2),
+    var(--dark3),
+    var(--dark4),
+    var(--dark5),
+    var(--dark6)
+  );
+
+  --buttons: linear-gradient(
+    to right,
+    var(--dark1),
+    var(--dark2),
+    var(--dark3),
+    var(--dark4),
+    var(--dark5),
+    var(--dark6)
+  );
+
+  --font: var(--white);
+  --navbar: var(--dark2);
+  --htmlTags: var(--gold);
+  --slide: var(--purple);
+}
+
+.lightMode {
+  display: none;
+}
+
+.darkMode {
+  display: block;
+}
+
+/*********************************** GLOBAL ***********************************/
 
 html {
   font-family: Inconsolata;
@@ -44,17 +120,10 @@ html {
 
 body {
   margin: 0;
-  background: linear-gradient(
-    to right,
-    #514d82,
-    #44426e,
-    #38365a,
-    #2c2a46,
-    #1f1e32,
-    #13121e
-  );
-  color: var(--white);
   max-width: 1700px;
+  background: var(--backGround);
+  color: var(--font);
+  transition: all 0.7s linear;
 }
 
 /*********************************** NAVBAR ***********************************/
@@ -65,11 +134,12 @@ body {
   left: -150px;
   height: 100vh;
   width: 150px;
-  background: var(--dark);
+  background: var(--navbar);
   transition: left 0.3s ease;
   z-index: 1000;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .menu.show {
@@ -81,24 +151,24 @@ body {
   text-align: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  border-bottom: 1px solid var(--gold);
+  border-bottom: 0.5px dotted var(--font);
 }
 
 .menu .menu-links li a {
-  border-bottom: 1px solid var(--gold);
+  border-bottom: 0.5px dotted var(--font);
   display: block;
   text-align: center;
   padding: 20px 25px;
-  color: var(--white);
-  transition: background 0.6s;
-  background-image: linear-gradient(90deg, transparent 50%, var(--dark) 50%);
+  color: var(--font);
+  transition: background 0.5s;
+  background-image: linear-gradient(90deg, transparent 50%, var(--navbar) 50%);
   background-size: 200% 100%;
   background-position: 100%;
 }
 
 .menu .menu-links li a:hover {
   background-position: 0;
-  background-color: rgba(189, 157, 61, 0.2);
+  background-color: var(--slide);
 }
 
 /************** ENGETO **************/
@@ -111,7 +181,7 @@ body {
 
 .engeto a {
   color: red;
-  background-color: var(--dark);
+  background-color: var(--navbar);
   padding: 20px 25px;
 }
 
@@ -122,11 +192,9 @@ body {
 }
 
 .menu .mode button {
-  color: var(--gold);
-  background-color: var(--dark);
+  background-color: var(--navbar);
   border: none;
   padding: 4px;
-  border-radius: 5px;
   font-family: Inconsolata;
   font-size: 22px;
   width: 100%;
@@ -139,21 +207,6 @@ body {
 .menu .mode button img {
   width: 30px;
   margin: 0px 18px;
-}
-
-/************** Dark/Light Mode **************/
-
-.darkMain {
-  color: aqua;
-  background-color: black;
-}
-
-.darkMode {
-  display: none;
-}
-
-.lightMode {
-  display: block;
 }
 
 /************** Hamburger **************/
@@ -169,12 +222,16 @@ body {
   transition: left 0.3s ease;
 }
 
+.hamburger:hover {
+  cursor: pointer;
+}
+
 .hamburger.open {
   left: 160px;
 }
 
 .hamburger.open .bar {
-  background: var(--white);
+  background: var(--font);
 }
 
 .bar {
@@ -182,7 +239,7 @@ body {
   width: 25px;
   height: 3px;
   margin: 5px auto;
-  background-color: var(--gold);
+  background-color: var(--htmlTags);
   transition: background 0.3s;
 }
 
@@ -215,12 +272,12 @@ section {
 
 .html-tag {
   margin-left: 0px;
-  color: var(--gold);
+  color: var(--htmlTags);
 }
 
 .body-tag {
   margin-left: 30px;
-  color: var(--gold);
+  color: var(--htmlTags);
 }
 
 .header-tag {
@@ -228,7 +285,7 @@ section {
 }
 
 .other-tags {
-  color: var(--gold);
+  color: var(--htmlTags);
 }
 
 /************** SECTIONS **************/
@@ -245,24 +302,23 @@ section {
 }
 
 .contact button {
-  background-color: var(--purple);
+  background-color: var(--buttons);
   border: none;
   margin-top: 40px;
 }
 
 .contact button a {
-  border: 2px solid var(--gold);
-  color: var(--white);
+  border: 2px solid var(--htmlTags);
+  color: var(--font);
   padding: 10px 40px;
-
   font-family: Inconsolata;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 /************** Profil **************/
 
 section .profil a {
-  color: var(--gold);
+  color: var(--htmlTags);
 }
 
 /************** Dovednosti **************/
@@ -316,15 +372,15 @@ section .icons-html img {
 }
 
 .cards button {
-  background-color: var(--purple);
-  border: 2px solid var(--gold);
+  background-color: var(--buttons);
+  border: 2px solid var(--htmlTags);
   border-radius: 10px;
   padding: 10px 20px;
   margin-top: 10px;
 }
 
 .cards button a {
-  color: var(--white);
+  color: var(--font);
   font-family: Inconsolata;
   font-size: 17px;
 }
@@ -351,18 +407,18 @@ section .icons-html img {
   min-height: 50px;
   justify-content: space-between;
   font-size: 25px;
-  color: var(--white);
+  color: var(--font);
   cursor: pointer;
   transition: all 0.2s linear;
 }
 
 .accordion-content.open header {
   min-height: 50px;
-  color: var(--gold);
+  color: var(--htmlTags);
 }
 
 .accordion-content.open .dot {
-  color: var(--gold);
+  color: var(--htmlTags);
 }
 
 .accordion-content .dot {
@@ -370,7 +426,7 @@ section .icons-html img {
 }
 
 .accordion-content a {
-  color: var(--gold);
+  color: var(--htmlTags);
 }
 
 .accordion-content .description {
@@ -388,11 +444,11 @@ section .icons-html img {
 /************** Kontakt **************/
 
 section .icons a:hover {
-  color: var(--gold);
+  color: var(--htmlTags);
 }
 
 section .icons a {
-  color: var(--white);
+  color: var(--font);
   display: flex;
   align-items: center;
   gap: 20px;
@@ -449,7 +505,6 @@ section .icons img {
   }
   .navbar .menu li span {
     font-size: 20px;
-    border: none;
   }
   .accordion-content header {
     font-size: 23px;
@@ -490,6 +545,12 @@ section .icons img {
     width: 80%;
     text-align: justify;
   }
+
+  /* logo zmenšení */
+  .menu .logo {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 }
 
 /************** 1000 **************/
@@ -516,9 +577,18 @@ section .icons img {
     margin-left: 50px;
   }
 
+  .menu {
+    left: -150px;
+  }
+
+  .menu .logo {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
   /* portfolio -borders */
   .cards {
-    border-top: 2px solid var(--gold);
+    border-top: 2px solid var(--htmlTags);
     padding: 10px;
     gap: 30px;
   }
@@ -550,7 +620,6 @@ section .icons img {
 
   .menu .mode button {
     font-size: 17px;
-    border: ;
   }
 
   .navbar .menu li span {
@@ -583,5 +652,11 @@ section .icons img {
 
   footer {
     font-size: 13px;
+  }
+
+  /* logo zmenšení */
+  .menu .logo {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 }
