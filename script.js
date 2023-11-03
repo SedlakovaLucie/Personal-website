@@ -1,48 +1,52 @@
-//////////////////////////////////////NAVBAR
-
 const hamburger = document.getElementById("hamburger");
 const menu = document.getElementById("menu");
 const scrollButton = document.querySelector(".arrow");
+const body = document.querySelector("body");
+const lightMode = document.querySelector(".lightMode");
+const darkMode = document.querySelector(".darkMode");
+const accordionContent = document.querySelectorAll(".accordion-content");
 
-// Funkce pro otevření/zavření menu
-function toggleMenu() {
+//////////////////////////////////////NAVBAR
+
+// otevření/zavření menu
+const toggleMenu = () => {
   menu.classList.toggle("show");
   hamburger.classList.toggle("open");
 
-  // Zde přidáme podmínku pro tlačítko scrollButton
+  // scroll button
   if (scrollButton.classList.contains("open")) {
     scrollButton.classList.remove("open");
   } else {
     scrollButton.classList.add("open");
   }
-}
+};
 
 hamburger.addEventListener("click", toggleMenu);
 
-// Funkce pro plynulý scroll na sekci
-function scrollToSection(sectionId) {
+// plynulý scroll na sekci
+const scrollToSection = (sectionId) => {
   const section = document.getElementById(sectionId);
   section.scrollIntoView({ behavior: "smooth" });
 
-  // Zavřít menu na mobilním zařízení
+  // zavření menu do 800px
   if (window.innerWidth <= 800) {
     toggleMenu();
   }
-}
+};
 
-// Event listenery pro odkazy v menu
+// odkazy v menu
 document.querySelectorAll(".menu-links a").forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
     const sectionId = link.getAttribute("href").substring(1);
     scrollToSection(sectionId);
   });
 });
 
-// Zavřít menu po kliknutí mimo něj (na mobilním zařízení)
-document.addEventListener("click", (e) => {
+// zavření menu po kliknutí mimo něj do 800px
+document.addEventListener("click", (event) => {
   if (window.innerWidth <= 800) {
-    if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+    if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
       menu.classList.remove("show");
       hamburger.classList.remove("open");
       scrollButton.classList.remove("open");
@@ -50,16 +54,36 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Automatické otevření menu na šířce viewportu nad 800px
+// otevření menu nad 800px
 if (window.innerWidth > 800) {
   toggleMenu();
 }
 
-//////////////////////////////////////DARK/LIGHT MODE
+//////////////////////////////////////SCROLL BUTTON
 
-const body = document.querySelector("body");
-const lightMode = document.querySelector(".lightMode");
-const darkMode = document.querySelector(".darkMode");
+//zobrazení buttonu
+window.addEventListener("scroll", () => {
+  if (window.scrollY >= 200) {
+    scrollButton.style.display = "block";
+  } else {
+    scrollButton.style.display = "none";
+  }
+});
+
+//odebrání třídy open pod 800px
+scrollButton.addEventListener("click", () => {
+  if (window.innerWidth <= 800) {
+    scrollButton.classList.remove("open");
+  }
+
+  // plynulý scroll nahoru
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+//////////////////////////////////////DARK/LIGHT MODE
 
 lightMode.addEventListener("click", () => {
   darkMode.style.display = "block";
@@ -74,8 +98,6 @@ darkMode.addEventListener("click", () => {
 });
 
 //////////////////////////////////////ACCORDION
-
-const accordionContent = document.querySelectorAll(".accordion-content");
 
 accordionContent.forEach((item, index) => {
   let header = item.querySelector("header");
@@ -95,7 +117,7 @@ accordionContent.forEach((item, index) => {
   });
 });
 
-function removeOpen(index1) {
+const removeOpen = (index1) => {
   accordionContent.forEach((item2, index2) => {
     if (index1 != index2) {
       item2.classList.remove("open");
@@ -105,27 +127,4 @@ function removeOpen(index1) {
       plusSign2.textContent = "+";
     }
   });
-}
-
-//////////////////////////////////////SCROLL BUTTON
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY >= 200) {
-    scrollButton.style.display = "block";
-  } else {
-    scrollButton.style.display = "none";
-  }
-});
-
-scrollButton.addEventListener("click", () => {
-  // Odebrat třídu "open" na mobilech (šířka viewportu <= 800px)
-  if (window.innerWidth <= 800) {
-    scrollButton.classList.remove("open");
-  }
-
-  // Provést plynulý scroll nahoru
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-});
+};

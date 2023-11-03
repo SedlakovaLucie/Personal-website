@@ -11,6 +11,12 @@
   font-weight: bold;
 }
 
+@font-face {
+  font-family: pixel;
+  src: url(font/ProggyCleanSZ.ttf);
+  font-weight: bold;
+}
+
 /* CSS reset */
 
 * {
@@ -137,21 +143,28 @@ body {
   background: var(--navbar);
   transition: left 0.4s ease;
   z-index: 1000;
+  box-shadow: none;
+}
+
+.menu.show {
+  left: 0;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-.menu.show {
-  left: 0;
-}
-
 .menu .logo {
   width: 100%;
   text-align: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 65px;
+  padding-bottom: 65px;
   border-bottom: 0.5px dotted var(--font);
+}
+
+.menu .logo a {
+  font-family: pixel;
+  font-size: 60px;
+  color: var(--htmlTags);
 }
 
 .menu .menu-links li a {
@@ -241,6 +254,58 @@ body {
   transition: background 0.4s;
 }
 
+/************** Scroll button **************/
+
+.arrow {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 26px;
+  height: 26px;
+  border: 2px solid;
+  border-radius: 4px;
+  color: var(--htmlTags);
+  transition: left 0.4s ease;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+.arrow::after,
+.arrow::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 6px;
+}
+
+.arrow::after {
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+  transform: rotate(45deg);
+  left: 8px;
+}
+
+.arrow::before {
+  width: 2px;
+  height: 10px;
+  left: 10px;
+  background: currentColor;
+}
+
+.arrow.open {
+  left: 160px;
+}
+
+.arrow.open {
+  color: var(--font);
+}
+
 /*********************************** FOOTER ***********************************/
 
 footer {
@@ -309,6 +374,8 @@ section {
   padding: 10px 40px;
   font-family: Inconsolata;
   font-size: 22px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 /************** Profil **************/
@@ -360,6 +427,8 @@ section .icons-html img {
   border-radius: 10px;
   max-width: 300px;
   object-fit: contain;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .cards img:hover {
@@ -373,6 +442,8 @@ section .icons-html img {
   border-radius: 10px;
   padding: 10px 20px;
   margin-top: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .cards button a {
@@ -540,8 +611,8 @@ section .icons img {
 
   /* logo zmenšení */
   .menu .logo {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 }
 
@@ -573,11 +644,14 @@ section .icons img {
     left: -150px;
   }
 
+  /* logo zmenšení */
   .menu .logo {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
-
+  .logo a {
+    font-size: 50px;
+  }
   /* portfolio -borders */
   .cards {
     border-top: 2px solid var(--htmlTags);
@@ -644,57 +718,10 @@ section .icons img {
 
   /* logo zmenšení */
   .menu .logo {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
-}
-
-.arrow {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 26px;
-  height: 26px;
-  border: 2px solid;
-  border-radius: 4px;
-  color: var(--htmlTags);
-  transition: left 0.4s ease;
-}
-
-.arrow:hover {
-  cursor: pointer;
-}
-
-.arrow::after,
-.arrow::before {
-  content: "";
-  display: block;
-  box-sizing: border-box;
-  position: absolute;
-  top: 6px;
-}
-
-.arrow::after {
-  width: 6px;
-  height: 6px;
-  border-top: 2px solid;
-  border-left: 2px solid;
-  transform: rotate(45deg);
-  left: 8px;
-}
-
-.arrow::before {
-  width: 2px;
-  height: 10px;
-  left: 10px;
-  background: currentColor;
-}
-
-.arrow.open {
-  left: 160px;
-}
-
-.arrow.open {
-  color: var(--font);
+  .logo a {
+    font-size: 45px;
+  }
 }
