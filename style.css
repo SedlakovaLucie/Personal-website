@@ -97,8 +97,8 @@ a {
     var(--dark6)
   );
 
-  --font: var(--white);
   --navbar: var(--dark2);
+  --font: var(--white);
   --htmlTags: var(--gold);
   --slide: var(--purple);
 }
@@ -135,7 +135,7 @@ body {
   height: 100vh;
   width: 150px;
   background: var(--navbar);
-  transition: left 0.3s ease;
+  transition: left 0.4s ease;
   z-index: 1000;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
@@ -194,7 +194,6 @@ body {
 .menu .mode button {
   background-color: var(--navbar);
   border: none;
-  padding: 4px;
   font-family: Inconsolata;
   font-size: 22px;
   width: 100%;
@@ -206,7 +205,6 @@ body {
 
 .menu .mode button img {
   width: 30px;
-  margin: 0px 18px;
 }
 
 /************** Hamburger **************/
@@ -219,7 +217,7 @@ body {
   z-index: 1100;
   background: none;
   border: none;
-  transition: left 0.3s ease;
+  transition: left 0.4s ease;
 }
 
 .hamburger:hover {
@@ -240,13 +238,14 @@ body {
   height: 3px;
   margin: 5px auto;
   background-color: var(--htmlTags);
-  transition: background 0.3s;
+  transition: background 0.4s;
 }
 
 /*********************************** FOOTER ***********************************/
 
 footer {
   font-size: 16px;
+  color: var(--htmlTags);
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -258,7 +257,6 @@ footer {
 
 main {
   margin-left: 210px;
-  max-width: 1360px;
   padding: 20px;
 }
 
@@ -294,10 +292,8 @@ section {
 #section1 h1 {
   background-image: url(img/h1.jpg);
   background-size: cover;
-  object-position: center;
   -webkit-background-clip: text;
   color: transparent;
-  width: fit-content;
   font-size: 50px;
 }
 
@@ -496,10 +492,6 @@ section .icons img {
     font-size: 20px;
   }
 
-  .menu .mode button {
-    font-size: 20px;
-  }
-
   .contact button a {
     font-size: 20px;
   }
@@ -589,11 +581,11 @@ section .icons img {
   /* portfolio -borders */
   .cards {
     border-top: 2px solid var(--htmlTags);
-    padding: 10px;
+    padding: 5px;
     gap: 30px;
+    margin-top: 5px;
   }
 }
-
 /************** 600 **************/
 
 @media (max-width: 600px) {
@@ -615,10 +607,6 @@ section .icons img {
   }
 
   .contact button a {
-    font-size: 17px;
-  }
-
-  .menu .mode button {
     font-size: 17px;
   }
 
@@ -659,4 +647,54 @@ section .icons img {
     padding-top: 10px;
     padding-bottom: 10px;
   }
+}
+
+.arrow {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 26px;
+  height: 26px;
+  border: 2px solid;
+  border-radius: 4px;
+  color: var(--htmlTags);
+  transition: left 0.4s ease;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+.arrow::after,
+.arrow::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 6px;
+}
+
+.arrow::after {
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+  transform: rotate(45deg);
+  left: 8px;
+}
+
+.arrow::before {
+  width: 2px;
+  height: 10px;
+  left: 10px;
+  background: currentColor;
+}
+
+.arrow.open {
+  left: 160px;
+}
+
+.arrow.open {
+  color: var(--font);
 }

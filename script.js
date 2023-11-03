@@ -2,11 +2,19 @@
 
 const hamburger = document.getElementById("hamburger");
 const menu = document.getElementById("menu");
+const scrollButton = document.querySelector(".arrow");
 
 // Funkce pro otevření/zavření menu
 function toggleMenu() {
   menu.classList.toggle("show");
   hamburger.classList.toggle("open");
+
+  // Zde přidáme podmínku pro tlačítko scrollButton
+  if (scrollButton.classList.contains("open")) {
+    scrollButton.classList.remove("open");
+  } else {
+    scrollButton.classList.add("open");
+  }
 }
 
 hamburger.addEventListener("click", toggleMenu);
@@ -37,6 +45,7 @@ document.addEventListener("click", (e) => {
     if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
       menu.classList.remove("show");
       hamburger.classList.remove("open");
+      scrollButton.classList.remove("open");
     }
   }
 });
@@ -97,3 +106,26 @@ function removeOpen(index1) {
     }
   });
 }
+
+//////////////////////////////////////SCROLL BUTTON
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY >= 200) {
+    scrollButton.style.display = "block";
+  } else {
+    scrollButton.style.display = "none";
+  }
+});
+
+scrollButton.addEventListener("click", () => {
+  // Odebrat třídu "open" na mobilech (šířka viewportu <= 800px)
+  if (window.innerWidth <= 800) {
+    scrollButton.classList.remove("open");
+  }
+
+  // Provést plynulý scroll nahoru
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
