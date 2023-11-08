@@ -3,9 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lucie Sedláková</title>
+    <meta name="description" content="Osobní webová stránka Lucie Sedlákové."/>
+    <meta property="og:image" content="https://lucie-sedlakova.cz/img/view.png">
+    <meta name="keywords" content="Osobní stránka, Lucie Sedláková" />
+    <meta name="author" content="Lucie Sedláková" />
     <link rel="shortcut icon" href="img/favicon.ico"/>
     <link rel="stylesheet" href="style.css" />
+    <title>Lucie Sedláková</title>
   </head>
   <!------------------------------------------------- NAVBAR ------------------------------------------------->
   <body class="dark light">
@@ -19,21 +23,18 @@
         </button>
         <div class="menu" id="menu">
           <div class="logo">
-            <a href="#section1">LS</a>
+            <a data-section="section1" class="link">LS</a>
           </div>
           <ul class="menu-links">
-            <li><a href="#section4">Portfolio</a></li>
-            <li><a href="#section5">Kariéra</a></li>
-            <li><a href="#section6">Kontakt</a></li>
-            <li><a href="#">CV</a></li>
+            <li><a data-section="section4" class="link">Portfolio</a></li>
+            <li><a data-section="section5" class="link">Kariéra</a></li>
+            <li><a data-section="section6" class="link">Kontakt</a></li>
+            <li><a href="resume/lucie-sedlakova-cv.pdf" target="_blank">CV</a></li>
             <div class="mode">
               <button class="darkMode"><img src="img/sun.png" alt=""></button>
               <button class="lightMode"><img src="img/moon.png" alt=""></button>
             </div>
           </ul>
-          <button class="engeto">
-          <a href="engeto.html">Engeto úkol</a>
-        </button>
           <footer>
             <p>Lucie Sedláková
               <br>
@@ -67,7 +68,7 @@
         <p class= "other-tags strong">&lt;/strong&gt;</p>
         <span class="contact">
         <button>
-          <a href="#section6">Contact me</a>
+          <a data-section="section6" class="link">Contact me</a>
         </button>
         </span>
       </div>   
@@ -80,8 +81,8 @@
       <span class="other-tags">&lt;/h2&gt;</span>
       <p class="other-tags">&lt;p&gt;</p>
       <p class="profil">
-        Vítejte na mé webové stránce. Jsem Front-end vývojář na začátku své profesní kariéry. Po dostudování vysoké školy jsem se rozhodla nastoupit na pozici vedoucího oddělení v Decathlonu. Postupem času jsem zjistila, že mé zájmy leží ve Front-end vývoji. Proto jsem současně s prací absolvovala rekvalifikační kurz od Engeta.
-        Aktuálně kde se zaměřuji na zdokonalení svých dovedností a pracuji na nových projektech, které najdete na mém <a href="https://github.com/SedlakovaLucie" target="_blank">GitHub</a> profilu.
+        Vítejte na mé webové stránce. Jsem Front-end vývojář na začátku své profesní kariéry. Po dostudování vysoké školy jsem se rozhodla nastoupit na pozici vedoucího oddělení v Decathlonu. Postupem času jsem zjistila, že mé zájmy leží ve Front-end vývoji, proto jsem současně s prací absolvovala rekvalifikační kurz od Engeta.
+        Aktuálně rozšiřuji své znalosti Bootcampem od Udemy a pracuji na nových projektech, které najdete na mém <a href="https://github.com/SedlakovaLucie" target="_blank">GitHub</a> profilu.
       </p>
       <span class="other-tags">&lt;/p&gt;</span>
     </section>
@@ -94,7 +95,7 @@
       <div class="icons-html">
       <img src="img/html.png" alt="html-icon">
       <img src="img/css.png" alt="css-icon">
-      <img src="img/javaScript.png" alt="javascript-icon">
+      <img src="img/javascript.png" alt="javascript-icon">
       <span class="other-tags">&gt;</span>
       </div>
     </section>

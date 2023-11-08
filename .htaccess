@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# Přesměrování na HTTPS protokol
+RewriteCond %{HTTPS} !on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,QSA,NE,R=301]
+
+# Odstranění /index z URL adresy
+RewriteCond %{THE_REQUEST} /index(\s|\?|$) [NC]
+RewriteRule ^(.*)index$ /$1 [L,R=301,NC]
+
+# Přidání přípony .html ke všem URL, které nemají příponu
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Přesměrování všech section na hlavní doménu
+RewriteRule ^section[0-9]+/?$ / [R=301,L]

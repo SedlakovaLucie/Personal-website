@@ -26,22 +26,13 @@ hamburger.addEventListener("click", toggleMenu);
 // plynulý scroll na sekci
 const scrollToSection = (sectionId) => {
   const section = document.getElementById(sectionId);
-  section.scrollIntoView({ behavior: "smooth" });
+  section.scrollIntoView({ behavior: "auto" });
 
   // zavření menu do 800px
   if (window.innerWidth <= 800) {
     toggleMenu();
   }
 };
-
-// odkazy v menu
-document.querySelectorAll(".menu-links a").forEach((link) => {
-  link.addEventListener("click", (event) => {
-    event.preventDefault();
-    const sectionId = link.getAttribute("href").substring(1);
-    scrollToSection(sectionId);
-  });
-});
 
 // zavření menu po kliknutí mimo něj do 800px
 document.addEventListener("click", (event) => {
@@ -58,6 +49,15 @@ document.addEventListener("click", (event) => {
 if (window.innerWidth > 800) {
   toggleMenu();
 }
+
+// odkazy v menu
+document.querySelectorAll("a.link").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    const sectionId = link.getAttribute("data-section");
+    scrollToSection(sectionId);
+  });
+});
 
 //////////////////////////////////////SCROLL BUTTON
 

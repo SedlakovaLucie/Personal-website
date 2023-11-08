@@ -161,6 +161,10 @@ body {
   border-bottom: 0.5px dotted var(--font);
 }
 
+.link:hover {
+  cursor: pointer;
+}
+
 .menu .logo a {
   font-family: pixel;
   font-size: 60px;
@@ -182,20 +186,6 @@ body {
 .menu .menu-links li a:hover {
   background-position: 0;
   background-color: var(--slide);
-}
-
-/************** ENGETO **************/
-
-.engeto {
-  font-family: Inconsolata;
-  font-size: 20px;
-  border: none;
-}
-
-.engeto a {
-  color: red;
-  background-color: var(--navbar);
-  padding: 20px 25px;
 }
 
 /************** Mode button **************/
@@ -369,6 +359,7 @@ section {
 }
 
 .contact button a {
+  display: inline-block;
   border: 2px solid var(--htmlTags);
   color: var(--font);
   padding: 10px 40px;
@@ -666,14 +657,21 @@ section .icons img {
   /* velikost písma */
   html {
     font-size: 17px;
+    font-weight: bold;
+    scroll-behavior: auto;
   }
 
   #section1 h1 {
     font-size: 30px;
   }
 
+  .menu .logo {
+    border-bottom: 1px dotted var(--font);
+  }
+
   .menu .menu-links li a {
     padding: 15px 25px;
+    border-bottom: 1px dotted var(--font);
   }
 
   .navbar .menu li a {
@@ -682,6 +680,7 @@ section .icons img {
 
   .contact button a {
     font-size: 17px;
+    font-weight: bold;
   }
 
   .navbar .menu li span {
@@ -702,6 +701,7 @@ section .icons img {
 
   .cards button {
     padding: 5px 10px;
+    font-weight: bold;
   }
 
   .cards button a {
