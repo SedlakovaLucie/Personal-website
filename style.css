@@ -17,6 +17,11 @@
   font-weight: bold;
 }
 
+@font-face {
+  font-family: mode;
+  src: url(font/alphabetized\ cassette\ tapes.ttf);
+}
+
 /* CSS reset */
 
 * {
@@ -41,6 +46,7 @@ a {
   --gold: #bd9d3d;
   --white: #e2e2e9;
   --purple: #b1afd0;
+  --grey: #a6a1a0;
   --dark1: #514d82;
   --dark2: #44426e;
   --dark3: #38365a;
@@ -51,13 +57,14 @@ a {
   --red: #da372e;
   --black: #00004d;
   --pink: #ffc6c0;
+  --yellow: #ffb11d;
   --light1: #ffffff;
   --light2: #fffbfb;
   --light3: #fff7f6;
   --light4: #e79a91;
 }
 
-/************** Dark/Light Mode **************/
+/************** Dark/Light Mode colors **************/
 
 .light {
   --backGround: linear-gradient(
@@ -77,6 +84,7 @@ a {
   );
 
   --navbar: var(--light3);
+  --mode: var(--grey);
   --font: var(--black);
   --htmlTags: var(--red);
   --slide: var(--pink);
@@ -104,9 +112,18 @@ a {
   );
 
   --navbar: var(--dark2);
+  --mode: var(--yellow);
   --font: var(--white);
   --htmlTags: var(--gold);
   --slide: var(--purple);
+}
+
+/* dark/light icons */
+
+.mode p {
+  font-family: mode;
+  font-size: 1.2rem;
+  color: var(--mode);
 }
 
 .lightMode {
@@ -153,6 +170,8 @@ body {
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+/************** Logo **************/
+
 .menu .logo {
   width: 100%;
   text-align: center;
@@ -170,6 +189,28 @@ body {
   font-size: 60px;
   color: var(--htmlTags);
 }
+
+/* Animace barev loga */
+@keyframes logoColorAnimationDark {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* animace pro light mode */
+.light .menu .logo a {
+  animation: logoColorAnimationDark 8s infinite alternate linear;
+}
+
+/* animace pro dark mode */
+.dark .menu .logo a {
+  animation: logoColorAnimationDark 8s infinite alternate linear;
+}
+
+/************** Links **************/
 
 .menu .menu-links li a {
   border-bottom: 0.5px dotted var(--font);
@@ -656,7 +697,7 @@ section .icons img {
 @media (max-width: 600px) {
   /* velikost písma */
   html {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: bold;
     scroll-behavior: auto;
   }
@@ -666,25 +707,25 @@ section .icons img {
   }
 
   .menu .logo {
-    border-bottom: 1px dotted var(--font);
+    border-bottom: 0.5px solid var(--font);
   }
 
   .menu .menu-links li a {
     padding: 15px 25px;
-    border-bottom: 1px dotted var(--font);
+    border-bottom: 0.5px solid var(--font);
   }
 
   .navbar .menu li a {
-    font-size: 17px;
+    font-size: 18px;
   }
 
   .contact button a {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: bold;
   }
 
   .navbar .menu li span {
-    font-size: 17px;
+    font-size: 18px;
   }
 
   .accordion-content header {
@@ -705,7 +746,7 @@ section .icons img {
   }
 
   .cards button a {
-    font-size: 16px;
+    font-size: 17px;
   }
 
   section .icons img {
