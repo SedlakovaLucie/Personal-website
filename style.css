@@ -766,3 +766,12 @@ section .icons img {
     font-size: 45px;
   }
 }
+
+/* portfolio */
+.text-wrapper {
+  width: 100%;
+}
+
+.image-wrapper {
+  width: 100%;
+}
