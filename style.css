@@ -139,6 +139,7 @@ a {
 html {
   font-family: Inconsolata;
   font-size: 22px;
+  background: 500ms ease-in-out, color 700ms ease-in-out;
 }
 
 body {
